@@ -41,8 +41,9 @@ function Game() {
             setGameResult('win');
             return;
         }
-        setNumOfGuess(numOfGuess + 1);
-        if (numOfGuess + 1 === NUM_OF_GUESSES_ALLOWED) {
+        const nextNumOfGuess = numOfGuess + 1;
+        setNumOfGuess(nextNumOfGuess);
+        if (nextNumOfGuess === NUM_OF_GUESSES_ALLOWED) {
             setGameResult('loose');
         }
     }
@@ -64,14 +65,14 @@ function Game() {
                 <div className="happy banner">
                     <p>
                         <strong>Congratulations!</strong> Got it in
-                        <strong>3 guesses</strong>.
+                        <strong>{numOfGuess} guesses</strong>.
                     </p>
                 </div>
             )}
             {gameResult === 'lose' && (
                 <div className="sad banner">
                     <p>
-                        Sorry, the correct answer is <strong>LEARN</strong>.
+                        Sorry, the correct answer is <strong>{answer}</strong>.
                     </p>
                 </div>
             )}
